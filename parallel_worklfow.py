@@ -30,6 +30,7 @@ class UPSCState(TypedDict):
     overall_feedback: str
     individual_scores:Annotated[list[int], operator.add]
     avg_score: float
+    
 def evaluate_language(state:UPSCState):
     prompt=f"Evaluate the language quality of the given essay and provide a feedback and score for the same.\n Essay:{state["essay"]}"    
     response=structured_model.invoke(prompt)
